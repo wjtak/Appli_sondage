@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sondage</title>
+  <style>
+      body{
+          padding-left: 10%;
+          padding-right: 10%;
+      }
+      input[type=text] {
+          display: inline-block;
+          width: 100%;
+      }
+      button {
+          padding-top: 5px;
+          padding-bottom: 5px;
+          text-align: center;
+          background-color: rgb(29, 130, 207);
+          color: white;
+          font-weight: bolder;
+          font-size: 20px;
+          width: 100%;
+          border: none;
+          margin-top: 20px;
+      }
+  </style>
+</head>
+
+<body class="">
+  <h1 style="color: blue">Veuillez saisir votre identifiant</h1>
+    <form action="/answer" method="post">
+        <input type="text" name="user" list="users" required>
+        <datalist  id="users">
+            {% for item in users %}
+            <option value="{{ item }}"></option>
+            {% endfor %}
+        </datalist>
+        <h1>Questions</h1>
+        <div>
+            {% for item in questions %}
+                <div value="">
+                    <h2> {{item[3]}}</h2>
+                    
+                    {% if item[1] == 'Libre' %}
+                        <input name="{{ item[0] }}" type="text">
+                    {% endif %}
+                    {% if item[1] == 'QCM' %}
+                        {% for reponse in item[4] %}
+
+                        <input  name="{{ item[0] }}" value="{{ reponse[1] }}" type="checkbox"> 
+                        <label for="">{{ reponse[1]  }} {{ reponse[2]}} </label>
+                        <br>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            <button type="submit">Enregistrer</button>
+        </div>
+    </form>
+</body>
+
+</html>
