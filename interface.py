@@ -20,7 +20,7 @@ def insert() :
     row_contents = ['xxxx', code, commune,type_commune,nom_departement,departement,sexe,age,formation,profession,taille_org,position_gj]
 
     # Open file in append mode
-    with open('users.csv', 'a+', newline='') as write_obj:
+    with open('data/users.csv', 'a+', newline='') as write_obj:
         # Create a writer object from csv module
         csv_writer = writer(write_obj)
         # Add contents of list as last row in the csv file

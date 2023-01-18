@@ -33,4 +33,4 @@ def insert_user(file_name) :
         csv_writer.writerow(row_contents)
 
 
-insert_user("users.csv")
+insert_user("data/users.csv")
