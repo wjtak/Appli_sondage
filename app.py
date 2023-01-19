@@ -7,6 +7,7 @@ from csv import writer
 
 app = Flask(__name__)
 
+
 """
     Enregistrer une ligne dans answers_qcm la fonction prend en paramètres 
     l'id de l'utilisateur, la quetion et la reponse de l'utilisateur 
@@ -147,3 +148,8 @@ def answer():
     #insert les data récuperées avec request.form
     insert_data(request.form)
     return render_template("message.html")
+
+if __name__ == "__main__":
+    app.run()
+    
+
